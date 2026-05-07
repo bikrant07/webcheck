@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Avero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#0b0d1f;color:#fff;font-family:'DM Sans',sans-serif;overflow:hidden}
+
+.bg{
+  position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 80% 55% at 50% -5%, rgba(45,58,140,0.35) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 45% at 85% 95%, rgba(90,107,255,0.15) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 40% at 5% 85%, rgba(45,58,140,0.18) 0%, transparent 50%),
+    #0b0d1f;
+}
+
+.grid-overlay{
+  position:fixed;inset:0;
+  background-image:
+    linear-gradient(rgba(45,58,140,0.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(45,58,140,0.08) 1px,transparent 1px);
+  background-size:72px 72px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 0%,transparent 100%);
+}
+
+.orb{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none}
+.orb-1{width:560px;height:560px;background:radial-gradient(circle,rgba(90,107,255,0.16) 0%,transparent 70%);top:-160px;left:50%;transform:translateX(-50%)}
+.orb-2{width:340px;height:340px;background:radial-gradient(circle,rgba(45,58,140,0.2) 0%,transparent 70%);bottom:-80px;right:8%}
+.orb-3{width:260px;height:260px;background:radial-gradient(circle,rgba(90,107,255,0.1) 0%,transparent 70%);bottom:15%;left:6%}
+
+.stage{
+  position:relative;z-index:10;
+  height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+  padding:24px;
+  gap:0;
+}
+
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid rgba(90,107,255,0.3);
+  background:rgba(90,107,255,0.07);
+  border-radius:100px;
+  padding:8px 20px;
+  font-size:11px;font-weight:500;letter-spacing:0.22em;
+  text-transform:uppercase;color:rgba(90,107,255,0.85);
+  margin-bottom:52px;
+  animation:fadeUp 0.7s ease both;
+}
+.badge-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:#5A6BFF;box-shadow:0 0 8px #5A6BFF;
+  animation:pulse 2.2s infinite;
+}
+
+.wordmark{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;
+  font-size:clamp(80px,17vw,168px);
+  line-height:0.88;
+  letter-spacing:-0.02em;
+  color:#ffffff;
+  animation:fadeUp 0.7s 0.1s ease both;
+}
+.wordmark .dot{
+  color:#5A6BFF;
+  text-shadow:0 0 48px rgba(90,107,255,0.9),0 0 80px rgba(90,107,255,0.4);
+}
+
+.tagline{
+  margin-top:24px;
+  font-size:clamp(12px,1.8vw,15px);
+  font-weight:300;
+  letter-spacing:0.32em;
+  text-transform:uppercase;
+  color:rgba(148,163,184,0.6);
+  animation:fadeUp 0.7s 0.2s ease both;
+}
+.tagline .sep{color:rgba(90,107,255,0.55);margin:0 6px}
+
+.rule{
+  width:1px;height:52px;
+  background:linear-gradient(to bottom,transparent,rgba(90,107,255,0.45),transparent);
+  margin:40px auto 0;
+  animation:fadeIn 1s 0.4s ease both;
+}
+
+.coming-soon{
+  margin-top:40px;
+  font-size:clamp(26px,5.5vw,56px);
+  font-weight:700;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  background:linear-gradient(120deg,#ffffff 0%,#a0aaff 45%,#5A6BFF 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:fadeUp 0.7s 0.32s ease both;
+  line-height:1;
+}
+
+.footer{
+  position:fixed;bottom:28px;left:0;right:0;
+  text-align:center;
+  font-size:11px;letter-spacing:0.1em;
+  color:rgba(148,163,184,0.2);
+  z-index:10;
+  animation:fadeIn 1.4s 0.9s ease both;
+}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.8)}}
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="grid-overlay"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<div class="stage">
+  <div class="badge"><span class="badge-dot"></span>Social Commerce Platform</div>
+  <div class="wordmark">avero<span class="dot">.</span></div>
+  <div class="tagline">Shop<span class="sep">·</span>Connect<span class="sep">·</span>Elevate</div>
+  <div class="rule"></div>
+  <div class="coming-soon">Coming Soon</div>
+</div>
+
+<div class="footer">© 2025 Avero Inc.</div>
+
+</body>
+</html>
